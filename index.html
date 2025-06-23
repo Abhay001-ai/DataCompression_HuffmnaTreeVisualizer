@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Huffman Coding Visualizer</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+  
+</head>
+<body>
+  <!-- Landing Page -->
+  <div id="landingPage" class="container landing-bg">
+    <div class="card">
+      <h1><i class="fas fa-project-diagram"></i> Huffman Coding Visualizer</h1>
+      <p class="subtitle">Efficient data compression and visualization tool</p>
+      <div class="button-group">
+        <button id="encryptionBtn" class="primary-btn">
+          <i class="fas fa-lock"></i> Data Encryption
+        </button>
+        <button id="visualizationBtn" class="primary-btn">
+          <i class="fas fa-tree"></i> Tree Visualization
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Encryption Screen -->
+  <div id="encryptionScreen" class="container encryption-bg" style="display:none;">
+    <div class="card">
+      <div class="header">
+        <h1><i class="fas fa-lock"></i> Data Encryption</h1>
+        <button id="backBtn1" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+      </div>
+      
+      <div class="input-section">
+        <div class="file-upload-wrapper">
+          <label for="fileInput" class="file-upload-label">
+            <i class="fas fa-file-upload"></i> Choose Text File
+          </label>
+          <input type="file" id="fileInput" accept=".txt">
+        </div>
+        <p class="divider">or</p>
+        <textarea id="inputText" placeholder="Type your text here..."></textarea>
+        
+        <div class="key-input">
+          <label for="shuffleKey"><i class="fas fa-key"></i> Shuffle Key:</label>
+          <input type="text" id="shuffleKey" placeholder="Enter your secret key">
+        </div>
+      </div>
+      
+      <div class="button-group">
+        <button id="encodeBtn" class="action-btn encode-btn">
+          <i class="fas fa-code"></i> Encode
+        </button>
+        <button id="decodeBtn" class="action-btn decode-btn">
+          <i class="fas fa-code-branch"></i> Decode
+        </button>
+      </div>
+      
+      <div class="output-section">
+        <label><i class="fas fa-file-code"></i> Output:</label>
+        <textarea id="outputText" placeholder="Your encoded/decoded result will appear here..." readonly></textarea>
+      </div>
+      
+      <div class="stats-section">
+        <h3><i class="fas fa-chart-bar"></i> Compression Statistics</h3>
+        <div class="stats-grid" id="compressionStats">
+          <!-- Stats will be inserted here by JavaScript -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Visualization Screen -->
+  <div id="visualizationScreen" class="container visualization-bg" style="display:none;">
+    <div class="card">
+      <div class="header">
+        <h1><i class="fas fa-tree"></i> Huffman Tree Visualization</h1>
+        <button id="backBtn2" class="back-btn"><i class="fas fa-arrow-left"></i> Back</button>
+      </div>
+      
+      <div class="controls">
+        <div class="file-upload-wrapper">
+          <label for="visFileInput" class="file-upload-label">
+            <i class="fas fa-file-upload"></i> Choose Text File
+          </label>
+          <input type="file" id="visFileInput" accept=".txt">
+        </div>
+        <p class="divider">or</p>
+        <textarea id="visInputText" placeholder="Enter text to visualize..."></textarea>
+        <button id="visualizeBtn" class="visualize-btn">
+          <i class="fas fa-eye"></i> Visualize Tree
+        </button>
+      </div>
+      
+      <div class="tree-container">
+        <div id="treeContainer">
+          <svg id="treeSvg" width="100%" height="100%"></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
